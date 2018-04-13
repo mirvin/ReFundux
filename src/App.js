@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import logo from './v1.svg';
 import './App.css';
 import {createStore} from 'redux';
-import {rootReducer} from './reducers'; //cuz im transpiling  could have done const { createStore } = Redux
+import {rootReducer} from './Reducers'; //cuz im transpiling  could have done const { createStore } = Redux
+//import {increment, decrement} from 'Actions'
+
 
 let store = createStore(rootReducer);
 
@@ -16,6 +18,15 @@ class App extends Component {
     });
   }
 
+  increment() {
+    console.log('inside store.increment method');
+    store.dispatch({type: 'Add-One', data:'added one'});
+  }
+  
+  decrement() {
+    console.log('inside store.decrement method');
+    store.dispatch({type: 'Sub-One'});
+  }
  
  
   render() {
